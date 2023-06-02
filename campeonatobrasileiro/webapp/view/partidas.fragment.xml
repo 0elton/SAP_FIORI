@@ -4,7 +4,7 @@
 >
 
 <Table id="partidasTable" headerText="9ª Rodada" 
-    items="{PartidasModel/partidas}"
+    items="{PartidasModel>/partidas}"
     inset="false">
     <columns>
         <Column id="col1" width="10%" hAlign="Right">
@@ -23,13 +23,13 @@
     <items>
         <ColumnListItem vAlign="Middle" id="clItens">
             <cells>
-                <Image id="escMand" src="{PartidasModel/time_mandante}" width="15%" />
+                <Image id="escMand" src="{PartidasModel>time_mandante}" width="15%" />
                 <VBox id="vb1">
-                    <Text id="txpl" text="{PartidasModel/placar}" />
-                    <Text id="txdt" text="{PartidasModel/data_realizacao}" />
-                    <Text id="txst" text="{PartidasModel/status}" />
+                    <Text id="txpl" text="{PartidasModel>placar}" />
+                    <Text id="txdt" text="{PartidasModel>data_realizacao}" />
+                    <Text id="txst" text="{PartidasModel>status}" />
                 </VBox>
-                <Image id="escVisi" src="{PartidasModel/time_visitante}" width="15%" />
+                <Image id="escVist" src="{PartidasModel>time_visitante}" width="15%" />
             </cells>
         </ColumnListItem>
 
