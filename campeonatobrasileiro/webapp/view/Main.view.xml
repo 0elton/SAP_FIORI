@@ -1,29 +1,28 @@
-<mvc:View xmlns:table="sap.ui.table" 
-controllerName="campeonatobrasileiro.controller.Main"
-    xmlns:c="sap.ui.core"
+<mvc:View xmlns:table="sap.ui.table" controllerName="campeonatobrasileiro.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n\title}">
+    <Page id="page" title="{i18n>title}">
        <ObjectHeader id="oHeader"
        title="{ModeloDadosGerais>/campeonato}"
        number="{ModeloDadosGerais>/rodada}"
        numberUnit="Rodada"
        ></ObjectHeader> 
-        <IconTabBar >
-            <items>
-                <IconTabFilter text="Classificação" 
+
+
+       <IconTabBar id="oIconTabbar">
+        <items>
+            <IconTabFilter id="oIconTabF" text="Classificação" 
                 icon="sap-icon://competitor"
                 key="classificacao">
 
-                    <!-- tabela  -->
-                    <Table items ="{ClassificacaoModel>/Classificacao}">
-                        <columns>
-                            <!-- posição -->
-                            <Column width="3%">
-                                <Text text=""></Text>
+                <Table id="oTable" items ="{ClassificacaoModel>/Classificacao}">
+                    <columns>
+                         <!-- posição -->
+                            <Column >
+                                <Text text="Posição"></Text>
                             </Column>
                             <!-- escudo -->
-                            <Column width="5%">
+                            <Column  >
                                 <Text text=""></Text>
                             </Column>
                             <!-- time -->
@@ -62,12 +61,12 @@ controllerName="campeonatobrasileiro.controller.Main"
                             <Column width="auto">
                                 <Text text="SG"></Text>
                             </Column>
-                        </columns>
+                    </columns>
 
-                        <items>
+                     <items>
                             <ColumnListItem >
                                 <cells>
-                                    <!-- 1a coluna posição -->
+                                <!-- 1a coluna posição -->
                                     <Text text="{ClassificacaoModel>posicao}"></Text>
                                     <!-- 2a coluna escudo-->
                                     <Image width="35%"
@@ -75,41 +74,71 @@ controllerName="campeonatobrasileiro.controller.Main"
                                     <!-- 3a coluna time-->
                                     <Text text="{ClassificacaoModel>time/nome_popular}"></Text>
                                     <!-- 4a coluna pontos-->
-                                    <Text text="21"></Text>
+                                    <Text text="{ClassificacaoModel>pontos}"></Text>
                                     <!-- 5a coluna jogos-->
-                                    <Text text="8"></Text>
+                                    <Text text="{ClassificacaoModel>jogos}"></Text>
                                     <!-- 6a coluna vitorias-->
-                                    <Text text="7"></Text>
+                                    <Text text="{ClassificacaoModel>vitorias}"></Text>
                                     <!-- 7a coluna empates -->
-                                    <Text text="0"></Text>
+                                    <Text text="{ClassificacaoModel>empates}"></Text>
                                     <!-- 8a coluna derrotas-->
-                                    <Text text="1"></Text>
+                                    <Text text="{ClassificacaoModel>derrotas}"></Text>
                                     <!-- 9a coluna gm -->
-                                    <Text text="16"></Text>
+                                    <Text text="{ClassificacaoModel>gols_pro}"></Text>
                                     <!-- 10a coluna gc-->
-                                    <Text text="6"></Text>
+                                    <Text text="{ClassificacaoModel>gols_contra}"></Text>
                                     <!-- 11a coluna saldo gols-->
-                                    <Text text="10"></Text>
+                                    <Text text="{ClassificacaoModel>saldo_gols}"></Text>
+                                </cells>
+                            </ColumnListItem>
+                    </items>                
+                </Table>
+                
+            </IconTabFilter>
+
+            <IconTabFilter id="oIconTabF1" text="Partidas" 
+                icon="sap-icon://soccer"
+                key="partidas">
+                
+                    <Table id="partidasTable" headerText="9ª Rodada" 
+                        items="{PartidasModel>/partidas}"
+                        inset="false">
+                        <columns>
+                            <Column id="col1" width="10%" hAlign="Right">
+                                <Text id="tx1" text="" />
+                            </Column>
+
+                            <Column id="col2" width="10%" hAlign="Center">
+                                <Text id= "tx2" text="Resultados" />
+                            </Column>
+
+                            <Column id="col3" width="10%" hAlign="Left">
+                                <Text id="tx3" text="" />
+                            </Column>
+
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle" id="clItens">
+                                <cells>
+                                    <Image id="escMand" src="{PartidasModel>time_mandante/escudo}" width="15%"  />
+                                    <VBox id="vb1">
+                                        <Text id="txpl" text="{PartidasModel>placar}" />
+                                        <Text id="txdt" text="{PartidasModel>data_realizacao}" />
+                                        <Text id="txst" text="{PartidasModel>status}" />
+                                    </VBox>
+                                    <Image id="escVist" src="{PartidasModel>time_visitante/escudo}" width="15%" />
                                 </cells>
                             </ColumnListItem>
 
                             
                         </items>
-
                     </Table>
-                </IconTabFilter>
 
-                <IconTabFilter text="Partidas" 
-                icon="sap-icon://soccer"
-                key="partidas">
-
-            <!-- para funcionar colocar propriedade xmlns:c="sap.ui.core" dentro da tag view-->
-            <!-- ver linha 3-->
-                <c:Fragment fragmentName="campeonatobrasileiro.view.partidas" type="XML" />
-
-                </IconTabFilter>
-            </items>
-        </IconTabBar>
-
+            </IconTabFilter>
+        
+        
+        </items>
+       
+       </IconTabBar >
     </Page>
 </mvc:View>
