@@ -11,7 +11,7 @@ sap.ui.define([
         return Controller.extend("campeonatobrasileiro.controller.Main", {
             onInit: function () {
 
-                //criar um modelo
+                 //criar um modelo
                 //variaveis do modelo
                 var dadosGerais = {
                     rodada: "10ª",
