@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.9.7",
-      "toolsId": "71e5fdf6-d3a5-4b90-acb4-ccd2861bec61"
+      "toolsId": "82d99d15-b781-4d75-8880-ab1d38ed6ca5"
     }
   },
   "sap.ui": {
@@ -57,17 +57,15 @@
         "settings": {
           "bundleName": "campeonatobrasileiro.i18n.i18n"
         }
+      },
+      "PartidasModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/partidas.json"
+      },
+      "ClassificacaoModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/classificacao.json"
       }
-    },
-    "PartidasModel" : {
-      "type": "sap.ui.model.json.JSONModel",
-      "uri": "model/partidas.json"
-
-    },
-    "ClassificacaoModel" : {
-      "type": "sap.ui.model.json.JSONModel",
-      "uri": "model/classificacao.json"
-
     },
     "resources": {
       "css": [
